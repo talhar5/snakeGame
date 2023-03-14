@@ -1,0 +1,78 @@
+:root{
+    --gridSize: 25;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    /* background: linear-gradient(to right, #ff7e5f, #feb47b); */
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.game-board{
+    height: 90vmin;
+    width: 90vmin;
+    border: 2px solid maroon;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: grid;
+    grid-template-columns: repeat(var(--gridSize), 1fr);
+    grid-template-rows: repeat(var(--gridSize), 1fr);  
+}
+.snakeHead{
+    background: linear-gradient(red, yellow);
+    border: 0.25vmin solid white;
+    border-radius: 9px;
+    scale: 1.05;
+}
+.snakeBody{
+    background-color: maroon;
+    border: 0.25vmin solid white;
+    border-radius: 13px;
+}
+.food{
+    background: linear-gradient(rgb(255, 79, 79), rgb(248, 98, 72));
+    border-radius: 9px;
+    border: 0.55vmin solid rgb(34, 34, 34);
+}
+
+.gameBtns{
+    position: relative;
+    height: 85vmin;
+    display: flex;
+    align-items: end;
+}
+.gameBtns>div{
+    display: flex;
+    flex-direction: column;
+}
+.btn{
+    margin-top: 1vmin;
+    padding: 2vmin 3vmin;
+    background-color: maroon;
+    border-radius: 0px 7px 7px 0;
+    color: wheat;
+    border: none;
+    transition: 0.3s;
+}
+.btn:hover{
+    background-color: rgba(128, 0, 0, 0.8);
+}
+.popupBox{
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    padding: 2vmin 5vmin;
+    background-color: rgba(128, 0, 0, 0.377);
+    transition: opacity 0.5s ease-in-out;
+}
