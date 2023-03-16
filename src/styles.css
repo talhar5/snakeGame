@@ -1,78 +1,143 @@
-:root{
-    --gridSize: 25;
+:root {
+  --gridSize: 25;
 }
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Sono&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Sono", sans-serif;
 }
 body {
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
-    /* background: linear-gradient(to right, #ff7e5f, #feb47b); */
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
 }
 
-.main{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.game-board{
-    height: 90vmin;
-    width: 90vmin;
-    border: 2px solid maroon;
-    border-radius: 3px;
-    background-color: rgba(255, 255, 255, 0.5);
-    display: grid;
-    grid-template-columns: repeat(var(--gridSize), 1fr);
-    grid-template-rows: repeat(var(--gridSize), 1fr);  
+.game-board {
+  height: 90vmin;
+  width: 90vmin;
+  border: 2px solid maroon;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: grid;
+  grid-template-columns: repeat(var(--gridSize), 1fr);
+  grid-template-rows: repeat(var(--gridSize), 1fr);
 }
-.snakeHead{
-    background: linear-gradient(red, yellow);
-    border: 0.25vmin solid white;
-    border-radius: 9px;
-    scale: 1.05;
+.snakeHead {
+  background: linear-gradient(red, yellow);
+  border: 0.25vmin solid white;
+  border-radius: 9px;
+  scale: 1.05;
 }
-.snakeBody{
-    background-color: maroon;
-    border: 0.25vmin solid white;
-    border-radius: 13px;
+.snakeBody {
+  background-color: maroon;
+  border: 0.25vmin solid white;
+  border-radius: 13px;
 }
-.food{
-    background: linear-gradient(rgb(255, 79, 79), rgb(248, 98, 72));
-    border-radius: 9px;
-    border: 0.55vmin solid rgb(34, 34, 34);
+.food {
+  background: linear-gradient(rgb(255, 79, 79), rgb(248, 98, 72));
+  border-radius: 9px;
+  border: 0.55vmin solid rgb(34, 34, 34);
 }
 
-.gameBtns{
-    position: relative;
-    height: 85vmin;
-    display: flex;
-    align-items: end;
+.gameBtns {
+  position: relative;
+  height: 85vmin;
+  display: flex;
+  align-items: end;
 }
-.gameBtns>div{
-    display: flex;
-    flex-direction: column;
+.gameBtns > div {
+  display: flex;
+  flex-direction: column;
 }
-.btn{
-    margin-top: 1vmin;
-    padding: 2vmin 3vmin;
-    background-color: maroon;
-    border-radius: 0px 7px 7px 0;
-    color: wheat;
-    border: none;
-    transition: 0.3s;
+.btn {
+  margin-top: 1vmin;
+  padding: 2vmin 3vmin;
+  background-color: maroon;
+  border-radius: 0px 7px 7px 0;
+  color: wheat;
+  border: none;
+  transition: 0.3s;
 }
-.btn:hover{
-    background-color: rgba(128, 0, 0, 0.8);
+.btn:hover {
+  background-color: rgba(128, 0, 0, 0.8);
 }
-.popupBox{
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    padding: 2vmin 5vmin;
-    background-color: rgba(128, 0, 0, 0.377);
-    transition: opacity 0.5s ease-in-out;
+.popup-Box {
+  position: fixed;
+  place-self: center;
+  text-align: center;
+  padding: 2vmin 5vmin;
+  background-color: white;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(128, 0, 0, 0.349);
+  color: grey;
+}
+.guides-box {
+  position: absolute;
+  height: 100%;
+  font-size: 1.3rem;
+  color: rgb(54, 54, 54);
+  display: grid;
+  grid-template-rows: repeat(12, 1fr);
+  width: calc(47vw - 45vmin);
+  left: 0;
+  overflow: hidden;
+}
+.guides-box > div {
+  grid-row-start: 5;
+  padding: 3.5vmin;
+  line-height: 1.9rem;
+}
+.scores-box {
+  position: absolute;
+  height: 100%;
+  width: calc(50vw - 45vmin);
+  right: 0;
+  display: grid;
+  grid-template-rows: repeat(12, 1fr);
+}
+.scores-box > div {
+  color: rgb(54, 54, 54);
+  margin: 5px;
+  font-size: 1.3rem;
+  width: 50%;
+}
+.scores-box > .score {
+  grid-row-start: 3;
+}
+.scores-box > .high-score {
+  grid-row-start: 4;
+}
+
+.small-screens {
+  position: absolute;
+  color: rgba(54, 54, 54, 0.863);
+  font-size: 1.5rem;
+  visibility: hidden;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  display: grid;
+  user-select: none;
+}
+.small-screens > div {
+  place-self: center;
+  overflow: hidden;
+  
+  width: 80%;
+}
+@media screen and (max-width: 500px) {
+  body {
+    visibility: hidden;
+  }
+  .small-screens {
+    visibility: visible;
+  }
 }
