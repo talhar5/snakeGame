@@ -4,11 +4,11 @@ const GRID_SIZE = 25;
 
 let popupBox = document.getElementById('popupBox');
 
-let turnSound = new Audio('../audios/move.mp3');
-let gameOverSound = new Audio('../audios/gameover.mp3');
-let backgroundSound = new Audio('../audios/music.mp3');
-let foodEatenSound = new Audio('../audios/food.mp3');
-let btnClickSound = new Audio('../audios/clicksound.wav');
+let turnSound = new Audio('./../audios/move.mp3');
+let gameOverSound = new Audio('./../audios/gameover.mp3');
+let backgroundSound = new Audio('./../audios/music.mp3');
+let foodEatenSound = new Audio('./../audios/food.mp3');
+let btnClickSound = new Audio('./../audios/clicksound.wav');
 // declaraing variables 
 let moveDirection, food, snake, animationRequestId, score = 0;
 
